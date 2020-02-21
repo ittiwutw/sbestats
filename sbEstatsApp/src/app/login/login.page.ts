@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from '../services/rest.service';
 import { Router } from '@angular/router';
-// import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +9,60 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  email: '';
+  password: '';
   constructor(
-    private router: Router
-  ) { }
-
-  ngOnInit() {
+    private restApi: RestService,
+    private router: Router,
+    private events: Events
+  ) {
+    // this.storage.get('user').then((val) => {
+    //   console.log(val);
+    //   if (val) {
+    //     this.router.navigate(['/tabs']);
+    //   }
+    // });
   }
 
-  Login() {
-    // this.fb.login(['public_profile', 'user_friends', 'email'])
-    //   .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
-    //   .catch(e => console.log('Error logging into Facebook', e));
+  ngOnInit() {
+    // this.storage.get('user').then((val) => {
+    //   console.log(val);
+    //   if (val) {
+    //     this.router.navigate(['/tabs']);
+    //   }
+    // });
+  }
 
+  login() {
+    const param = {
+      email: this.email,
+      password: this.password
+    };
 
-    // this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
-    // this.storage.set('currentUser', 'test');
-    // this.router.navigateByUrl('/tabs');
+    this.restApi.login(param).then(res => {
+      console.log(res);
+      let data: any;
+      data = res;
+
+      const userData = data.data;
+      if (userData) {
+        console.log(userData.result[0]);
+        this.router.navigate(['/tabs']);
+        // const userInfo = userData.result[0];
+
+        // this.storage.set('user', userData.result).then((val) => {
+        //   this.events.publish('user:login');
+        //   this.router.navigate(['/tabs']);
+        // });
+
+      } else {
+        alert(data.response_description);
+      }
+    });
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 
 }
