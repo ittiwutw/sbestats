@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { RestService } from '../services/rest.service';
 export class HomePage implements OnInit {
   estates: any;
   constructor(
+    private router: Router,
     private restApi: RestService
   ) {
     this.getAllEstate();
@@ -26,6 +28,12 @@ export class HomePage implements OnInit {
       this.estates = data.data.result;
       console.log(this.estates);
     });
+  }
+
+  onClickEstate(item) {
+    this.router.navigate(['/estate-detail', {
+      estate: JSON.stringify(item)
+    }]);
   }
 
 }

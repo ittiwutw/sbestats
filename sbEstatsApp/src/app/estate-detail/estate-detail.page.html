@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="estate">
+  <img [src]="estate.imgUrl" />
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <h1 style="margin-top: 10px;">฿ {{estate.price}} บาท</h1>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button shape="block" default-button color="light"
+          >ใส่ตระกร้า</ion-button
+        >
+      </ion-col>
+      <ion-col size="3">
+        <ion-button shape="block" default-button color="light"
+          >คำนวน</ion-button
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <p style="margin-top: 10px;">{{estate.detail}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label position="fixed">
+        ประเภท
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.estateType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        พื้นที่
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.area"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        ปีที่สร้าง
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.area"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        ประเภทประกาศ
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.sellType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        เครื่องเรือน
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.sellType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        สิทธิ์ถือครอง
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.sellType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        เจ้าของโครงการ
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.sellType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        หมวดหมู่ย่อย
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.sellType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        รหัสประกาศ
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.sellType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
+        ลงประกาศแล้ว
+      </ion-label>
+      <ion-input
+        disabled="true"
+        [value]="estate.createDate | date: 'dd/MM/yyyy'"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+  <div #map id="map"></div>
+</ion-content>
