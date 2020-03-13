@@ -6,8 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RestService {
 
-  // apiUrl = 'http://localhost:8080/';
-  apiUrl = 'https://sbestate.yuzudigital.com/';
+  apiUrl = 'http://localhost:8080/';
+  // apiUrl = 'https://sbestate.yuzudigital.com/';
 
   constructor(private http: HttpClient) {
     console.log('Hello RestProvider Provider');

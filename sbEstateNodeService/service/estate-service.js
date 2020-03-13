@@ -3,6 +3,7 @@ var _coreFunc = require("./coreFunction");
 
 async function getEstate(param, callback) {
   var data = await _estateRepo.getEstate(param);
+  
 
   callback("", {
     response_code: "0000",
@@ -13,8 +14,16 @@ async function getEstate(param, callback) {
   return;
 }
 
+async function getEstateImg(estateId) {
+    var imgs = await _estateRepo.getEstateImgByEstateId(estateId)
+  
+
+  return imgs;
+}
+
 var estateService = {
-  getEstate: getEstate
+  getEstate: getEstate,
+  getEstateImg: getEstateImg
 };
 
 module.exports = estateService;

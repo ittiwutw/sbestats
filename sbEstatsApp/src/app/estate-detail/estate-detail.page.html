@@ -8,6 +8,17 @@
 
 <ion-content *ngIf="estate">
   <img [src]="estate.imgUrl" />
+  <!-- <div *ngFor="let img of estate.imgs">
+    <img [src]="img.imgUrl" />
+  </div> -->
+  <ion-slides [options]="slideProdOpts">
+    <ion-slide background-size *ngFor="let img of estate.imgs">
+      <ion-card>
+        <img [src]="img.imgUrl" />
+      </ion-card>
+      <br />
+    </ion-slide>
+  </ion-slides>
   <ion-grid>
     <ion-row>
       <ion-col size="6">
@@ -95,5 +106,6 @@
       ></ion-input>
     </ion-item>
   </ion-list>
+
   <div #map id="map"></div>
 </ion-content>

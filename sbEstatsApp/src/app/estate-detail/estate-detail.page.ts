@@ -12,6 +12,20 @@ export class EstateDetailPage implements OnInit {
   @ViewChild('map', { static: false }) mapContainer: ElementRef;
   map: any;
 
+  slideProdOpts = {
+    slidesPerView: 1.25,
+    spaceBetween: 0,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    speed: 400,
+    autoplay: false
+  };
+
   estate: any;
   constructor(
     private geolocation: Geolocation,
