@@ -12,8 +12,21 @@ function getEstate(req){
     });
 };
 
+function saveEstate(req){
+    return new Promise((resolve, reject) => {
+        try {
+            estateService.saveEstate(req.body, (err, rows) => {
+                resolve(rows);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
+
 var estateConst = {
-    getEstate:getEstate
+    getEstate: getEstate,
+    saveEstate: saveEstate
 }
 
 module.exports = estateConst;

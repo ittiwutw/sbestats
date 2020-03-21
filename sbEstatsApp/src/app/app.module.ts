@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Camera } from '@ionic-native/Camera/ngx';
 // import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     SplashScreen,
     HttpClientModule,
     Geolocation,
+    Camera,
     // Facebook,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

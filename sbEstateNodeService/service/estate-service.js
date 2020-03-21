@@ -21,9 +21,22 @@ async function getEstateImg(estateId) {
   return imgs;
 }
 
+async function saveEstate(param, callback) {
+  param.createDate = new Date().toMysqlFormat();
+  var data = await _estateRepo.saveEstate(param);
+  
+  callback("", {
+    response_code: "0000",
+    response_description: "SUCCESS"
+  });
+
+  return;
+}
+
 var estateService = {
   getEstate: getEstate,
-  getEstateImg: getEstateImg
+  getEstateImg: getEstateImg,
+  saveEstate: saveEstate
 };
 
 module.exports = estateService;

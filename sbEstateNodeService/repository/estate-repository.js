@@ -29,20 +29,29 @@ async function getEstateImgByEstateId(estateId) {
 }
 
 async function saveEstate(param) {
-  sqlStr = `INSERT INTO estate (estateType, sellType, name, detail, price, area, imgUrl, lat, lng, statusFlg, createDate, userId)
+  sqlStr = `INSERT INTO estate (estateType, sellType, name, detail, price, province, imgUrl, lat, lng, statusFlg, createDate, userId, district, 
+    rai, ngan, wa, tel, deedImg, landImg, positionImg)
      VALUES (
         '${param.estateType}'
        , '${param.sellType}'
        , '${param.name}'
        , '${param.detail}'
        , '${param.price}'
-       , '${param.area}'
+       , '${param.province}'
        , '${param.imgUrl}'
        , '${param.lat}'
        , '${param.lng}'
        , '${param.statusFlg}'
-       , '${createDate}'
+       , '${param.createDate}'
        , '${param.userId}'
+       , '${param.district}'
+       , '${param.rai}'
+       , '${param.ngan}'
+       , '${param.wa}'
+       , '${param.tel}'
+       , '${param.deedImg}'
+       , '${param.landImg}'
+       , '${param.positionImg}'
     )  `;
   console.log("sqlStr : ", sqlStr);
   let res = await _db.insertdata(sqlStr);

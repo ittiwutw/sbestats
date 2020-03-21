@@ -38,6 +38,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'add-estate',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+            import('../add-estate/add-estate.module').then( m => m.AddEstatePageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
