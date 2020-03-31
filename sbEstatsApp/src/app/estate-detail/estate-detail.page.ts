@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Storage } from '@ionic/storage';
 declare var google;
 @Component({
   selector: 'app-estate-detail',
@@ -27,10 +28,13 @@ export class EstateDetailPage implements OnInit {
   };
 
   estate: any;
+  isAddedCart = false;
+
   constructor(
     private geolocation: Geolocation,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private storage: Storage
   ) {
 
   }
@@ -100,6 +104,22 @@ export class EstateDetailPage implements OnInit {
     // const position = new google.maps.LatLng(this.estate.lat, this.estate.lng);
     const marker = new google.maps.Marker({ position, map: this.map, title: this.estate.name });
     marker.setMap(this.map);
+  }
+
+  addToCart() {
+    this.storage.get('cart').then(cart => {
+      let newCart = [];
+      if (cart) {
+        newCart = cart;
+      }
+
+      newCart.push(this.estate);
+
+      this.storage.set('cart', newCart).then(saved => {
+        this.isAddedCart = true;
+      });
+
+    });
   }
 
 }

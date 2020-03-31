@@ -6,20 +6,23 @@
 
 <ion-content>
   <div padding>
-<h1>สินค้าของคุณ</h1>
-</div>
-<div>
-  <ion-card>
-    <img src="../../assets/img/condo3.jpeg" />
-    <ion-card-content>
-      <p>ราคา 13,000,000 บาท</p>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img src="../../assets/img/condo2.jpeg" />
-    <ion-card-content>
-      <p>ราคา 20,000,000 บาท</p>
-    </ion-card-content>
-  </ion-card>
-</div>
+    <h1>สินค้าของคุณ</h1>
+  </div>
+  <div>
+    <ion-row>
+      <ion-col size="12" *ngFor="let estate of carts; let i = index">
+        <ion-card (click)="onClickEstate(estate)">
+          <img [src]="estate.imgUrl" />
+          <div padding>
+            <p>ชื่อโครงการ : {{estate.name}}</p>
+            <p>รายละเอียด : {{estate.detail}}</p>
+            <p>ประเภท เช่า/ขาย : {{estate.sellType}}</p>
+            <p>ราคา : {{estate.price}} บาท</p>
+            <p>ราคา : {{estate.estateType}}</p>
+            <ion-button (click)="remove(i)">ลบ</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>
