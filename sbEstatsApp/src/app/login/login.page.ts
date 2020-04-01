@@ -52,6 +52,7 @@ export class LoginPage implements OnInit {
         // this.router.navigate(['/tabs']);
         const userInfo = userData.result[0];
 
+        // add to storage
         this.storage.set('user', userInfo).then((val) => {
           // this.events.publish('user:login');
           this.router.navigate(['/tabs']);

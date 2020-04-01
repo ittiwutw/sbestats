@@ -21,6 +21,7 @@ export class CartPage implements OnInit {
 
   ionViewDidEnter() {
     this.storage.get('cart').then(carts => {
+      console.log(carts);
       this.carts = carts;
     });
   }
