@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'add-estate',
     loadChildren: () => import('./add-estate/add-estate.module').then( m => m.AddEstatePageModule)
+  },  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
+
 ];
 @NgModule({
   imports: [

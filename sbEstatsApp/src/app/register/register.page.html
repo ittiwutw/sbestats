@@ -1,0 +1,42 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>สมัครสมาชิก</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form onsubmit="registerForm(event)">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+      <ion-item>
+        <ion-label position="stacked">Username <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" oninput=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" oninput=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">First Name <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" oninput=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Last Name <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" oninput=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Phone Number <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" oninput=""></ion-input>
+      </ion-item>
+      
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin">Sign up</ion-button>
+    </div>
+  </form>
+</ion-content>
