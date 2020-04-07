@@ -1,6 +1,7 @@
-<ion-content scrollbar-x="false" scrollbar-y="false">
+<!DOCTYPE html>
+<ion-content scrollbar-x="false" scrollbar-y="false" fullscreen>
 
-  <ion-card class="welcome-card">
+  <ion-card class="welcome-card" fullscreen>
     <ion-card-header>
       <ion-card-title text-center color="primary">
         <img style="height: 150px; width: 150px; margin: auto;" src="/assets/icon/logo.png" />
@@ -25,15 +26,9 @@
         <ion-button shape="round" default-button (click)="login()" color="primary">
           เข้าสู่ระบบ</ion-button>
       </ion-col>
-      <ion-col size="12">
-        <div style="display: flex;margin-top: 20px;" justify-content-between>
-          <ion-item>
-          <a href="#" > <ion-label >ลืมรหัสผ่าน?</ion-label></a>
-          </ion-item>
-          <ion-item (click)="register()">
-            <a style="padding-left:5px"> <ion-label>ลงทะเบียน</ion-label></a>
-          </ion-item>
-      </div>
+      <ion-col size="12" text-center>
+        <ion-button shape="round" default-button (click)="register()" color="secondary">
+          ลงทะเบียน</ion-button>
         <!-- <p style="padding-right: 10px; text-align: end;" (click)="register()"><u>ลงทะเบียน</u></p> -->
       </ion-col>
     </ion-row>
