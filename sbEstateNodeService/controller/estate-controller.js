@@ -24,9 +24,22 @@ function saveEstate(req){
     });
 };
 
+function searchEstate(req){
+    return new Promise((resolve, reject) => {
+        try {
+            estateService.searchEstate(req.body, (err, rows) => {
+                resolve(rows);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
+
 var estateConst = {
     getEstate: getEstate,
-    saveEstate: saveEstate
+    saveEstate: saveEstate,
+    searchEstate: searchEstate
 }
 
 module.exports = estateConst;

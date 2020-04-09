@@ -60,10 +60,34 @@ async function saveEstate(param) {
   return res;
 }
 
+async function searchEstate(param) {
+  let whereSellType = '';
+  if(param.sellType){
+    whereSellType = `AND sellType = '${param.sellType}' `;
+  }
+  let sqlStr = `SELECT * FROM estate WHERE name LIKE '%${param.name}%' ${whereSellType}`;
+  console.log("sqlStr : ", sqlStr);
+
+  let res = await _db.selectData(sqlStr);
+  console.log("result findUser: ", res);
+
+  for (var i = 0; i < res.result.length; i++) {
+    let sqlStrImg = `SELECT * FROM estateImg WHERE estateId = ${res.result[i].id}`;
+    console.log("sqlStrImg : ", sqlStrImg);
+    let resImgs = await _db.selectData(sqlStrImg);
+    console.log("result imgs: ", resImgs);
+    res.result[i].imgs = resImgs.result;
+  }
+  
+
+  return res;
+}
+
 let estateRepo = {
   getEstate: getEstate,
   getEstateImgByEstateId: getEstateImgByEstateId,
-  saveEstate: saveEstate
+  saveEstate: saveEstate,
+  searchEstate: searchEstate
 };
 
 module.exports = estateRepo;

@@ -8,38 +8,31 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <form onsubmit="registerForm(event)">
     <ion-list lines="full" class="ion-margin ion-no-padding">
 
       <ion-item>
         <ion-label position="stacked">Username <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="email" oninput=""></ion-input>
+        <ion-input required type="email"  [(ngModel)]="user.email"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Password <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="password" oninput=""></ion-input>
+        <ion-input required type="password"  [(ngModel)]="user.password"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="stacked">First Name <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="text" oninput=""></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="stacked">Last Name <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="text" oninput=""></ion-input>
+        <ion-label position="stacked">Name <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text"  [(ngModel)]="user.name"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Phone Number <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="number" oninput=""></ion-input>
+        <ion-input required type="tel"  [(ngModel)]="user.phoneNo"></ion-input>
       </ion-item>
       
     </ion-list>
 
     <div class="ion-padding">
-      <ion-button expand="block" type="submit" class="ion-no-margin">ลงทะเบียน</ion-button>
+      <ion-button expand="block" type="submit" class="ion-no-margin" (click)="onclickRegister()">ลงทะเบียน</ion-button>
     </div>
-  </form>
 </ion-content>

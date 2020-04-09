@@ -32,4 +32,10 @@ router.post('/saveEstate', (req, res) => {
     })
 });
 
+router.post('/searchEstate', (req, res) => {
+    estateController.searchEstate(req).then(rows => {
+        res.json(rows)
+    })
+});
+
 module.exports = router;

@@ -6,8 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RestService {
 
-  // apiUrl = 'http://localhost:8080/';
-  apiUrl = 'https://sbestate.yuzudigital.com/';
+  apiUrl = 'http://localhost:8080/';
+  // apiUrl = 'https://sbestate.yuzudigital.com/';
 
   constructor(private http: HttpClient) {
     console.log('Hello RestProvider Provider');
@@ -71,6 +71,22 @@ export class RestService {
       this.http.post(this.apiUrl + 'saveEstate', param, { headers: header })
         .subscribe(res => {
 
+          // this.setUserLogin(res);
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
+  searchEstate(param) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.post(this.apiUrl + 'searchEstate', param, { headers: header })
+        .subscribe(res => {
           // this.setUserLogin(res);
           resolve(res);
         }, (err) => {
