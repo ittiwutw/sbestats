@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EstateDetailPageRoutingModule } from './estate-detail-routing.module';
 
 import { EstateDetailPage } from './estate-detail.page';
+import { ModalPage } from '../modal/modal.page';
 
 @NgModule({
   imports: [

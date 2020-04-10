@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera } from '@ionic-native/Camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { ModalPageModule } from './modal/modal.module';
 // import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { IonicStorageModule } from '@ionic/storage';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule],
+    HttpClientModule,
+    ModalPageModule],
   providers: [
     StatusBar,
     SplashScreen,

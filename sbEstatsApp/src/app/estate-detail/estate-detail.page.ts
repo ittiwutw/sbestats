@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Storage } from '@ionic/storage';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 declare var google;
 @Component({
   selector: 'app-estate-detail',
@@ -34,9 +36,21 @@ export class EstateDetailPage implements OnInit {
     private geolocation: Geolocation,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private storage: Storage
+    private storage: Storage,
+    public modalController: ModalController
   ) {
 
+  }
+
+  async presentModal(urlImgVal) {
+    console.log(urlImgVal);
+    const modal = await this.modalController.create({
+      component: ModalPage,
+      componentProps: {
+        urlImg: urlImgVal
+     }
+    });
+    return await modal.present();
   }
 
   ngOnInit() {
