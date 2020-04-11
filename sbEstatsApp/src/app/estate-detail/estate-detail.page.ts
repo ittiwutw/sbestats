@@ -42,12 +42,16 @@ export class EstateDetailPage implements OnInit {
 
   }
 
-  async presentModal(urlImgVal) {
-    console.log(urlImgVal);
+  async presentModal(urlImgVal1,urlImgVal2,urlImgVal3,urlImgVal4) {
+    console.log(urlImgVal1 + " " + urlImgVal2 +" "+ urlImgVal3 +" "+ urlImgVal4);
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: {
-        urlImg: urlImgVal
+        urlImg1: urlImgVal1,
+        urlImg2: urlImgVal2,
+        urlImg3: urlImgVal3,
+        urlImg4: urlImgVal4
+
      }
     });
     return await modal.present();
