@@ -9,14 +9,14 @@
 <ion-content fullscreen>
   <ion-list no-lines>
     <ion-item color="danger">
-    <img src="/assets/icon/โปรไฟล์.png" /><ion-label>NAME & LASTNAME</ion-label>
+    <img src="/assets/icon/โปรไฟล์.png" /><ion-label>{{name}}</ion-label>
     </ion-item>
 
     <ion-item color="light">
-      <img src="/assets/icon/settings.png" /><ion-label>ตั้งค่าโปรไฟล์</ion-label>
+      <img src="/assets/icon/settings.png" /><ion-label (click)="onClickEditProfile()">ตั้งค่าโปรไฟล์</ion-label>
     </ion-item>
     <ion-item color="light">
-      <img src="/assets/icon/favorite.png" /><ion-label>สินค้าของฉัน</ion-label>
+      <img src="/assets/icon/favorite.png" /><ion-label (click)="onClickCart()">Favorite</ion-label>
     </ion-item>
     <ion-item color="light">
       <img src="/assets/icon/logo.png" /><ion-label>เกี่ยวกับเรา</ion-label>

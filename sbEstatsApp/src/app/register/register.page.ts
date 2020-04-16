@@ -42,4 +42,8 @@ export class RegisterPage implements OnInit {
     });
   }
 
+  onClickLogin(){
+    this.router.navigate(['/login']);
+  }
+
 }
