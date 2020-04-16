@@ -40,7 +40,7 @@ export class HomePage implements OnInit {
       estate: JSON.stringify(item)
     }]);
   }
-  
+
   searchItem(ev: any) {
     this.estates = [];
     const val = ev.target.value;

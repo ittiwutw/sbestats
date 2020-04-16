@@ -48,6 +48,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'nearby',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+            import('../nearby/nearby.module').then( m => m.NearbyPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
