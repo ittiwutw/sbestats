@@ -61,6 +61,10 @@ export class EstateDetailPage implements OnInit {
 
   }
 
+  onClickChat() {
+    this.router.navigate(['/chat']);
+  }
+
   ionViewDidEnter() {
     this.activatedRoute.params.subscribe(params => {
       this.estate = JSON.parse(params.estate);

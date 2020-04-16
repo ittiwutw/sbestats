@@ -3,11 +3,17 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onClickChat()">
+        <ion-icon name="chatbubbles"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="estate">
   <img [src]="estate.imgUrl" />
+
   <!-- <div *ngFor="let img of estate.imgs">
     <img [src]="img.imgUrl" />
   </div> -->
