@@ -41,6 +41,18 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
+  {
+    path: 'about-us',
+    loadChildren: () => import('./about-us/about-us.module').then( m => m.AboutUsPageModule)
+  },
+  {
+    path: 'tax-calculator',
+    loadChildren: () => import('./tax-calculator/tax-calculator.module').then( m => m.TaxCalculatorPageModule)
+  },
+  {
+    path: 'nearby',
+    loadChildren: () => import('./nearby/nearby.module').then( m => m.NearbyPageModule)
   }
 
 ];
