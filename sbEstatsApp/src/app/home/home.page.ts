@@ -41,6 +41,10 @@ export class HomePage implements OnInit {
     }]);
   }
 
+  onClickChat() {
+    this.router.navigate(['/chat']);
+  }
+
   searchItem(ev: any) {
     this.estates = [];
     const val = ev.target.value;
