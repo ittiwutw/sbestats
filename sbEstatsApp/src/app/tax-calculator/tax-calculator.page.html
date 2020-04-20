@@ -1,9 +1,227 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>taxCalculator</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>คำนวณ</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-segment [(ngModel)]="viewMode" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="condo">
+      <ion-label>คอนโด</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="house">
+      <ion-label>บ้านหรือที่ดิน</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div class="ion-padding current-health" *ngIf="viewMode === 'condo'">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          ค่าธรรมเนียมการโอน
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder="ราคาอสังหา"></ion-input>
+        </ion-col>
+        <ion-col size="3" style="margin-top: 10px; text-align: center;">x 1% =</ion-col>
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder=""></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          ค่าจดจำนอง
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder="ราคาอสังหา"></ion-input>
+        </ion-col>
+        <ion-col size="3" style="margin-top: 10px; text-align: center;"> x 1% = </ion-col>
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder=""></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4" style="font-size: 10px; color:red">
+          **กรณีผู้ซื้อไม่ได้กู้ธนาคารไม่ต้องจ่ายค่าจดจำนอง
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="6" class="border-input">
+          <ion-input placeholder="ค่าทำเนียมการโอน"></ion-input>
+        </ion-col>
+        <ion-col size="1" style="margin-top: 10px; text-align: center;"> + </ion-col>
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder="ค่าจดจำนอง"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="text-align: center;">
+          ราคาจ่ายเพิ่ม ณ ที่จ่าย
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="text-align: center;" class="border-input">
+          <ion-input placeholder=""></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="ion-padding house" *ngIf="viewMode === 'house'">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          ค่าธรรมเนียมการโอน
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder="ราคาอสังหา"></ion-input>
+        </ion-col>
+        <ion-col size="3" style="margin-top: 10px; text-align: center;">x 0.1% =</ion-col>
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder=""></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          ค่าอากรแสตมป์
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder=""></ion-input>
+        </ion-col>
+        <ion-col size="3" style="margin-top: 10px; text-align: center;"> x 0.1% = </ion-col>
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder=""></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4" style="font-size: 10px; color:red">
+          **กรณีผู้ซื้อไม่ได้กู้ธนาคารไม่ต้องจ่ายค่าจดจำนอง
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          ค่าจดจำนอง
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder="ราคาอสังหา"></ion-input>
+        </ion-col>
+        <ion-col size="3" style="margin-top: 10px; text-align: center;"> x 1% = </ion-col>
+        <ion-col size="4" class="border-input">
+          <ion-input placeholder=""></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="border-input" style="text-align: center;">
+          <ion-input placeholder="ค่าทำเนียมการโอน"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="12" style="margin-top: 10px; text-align: center;"> + </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="border-input" style="text-align: center;">
+          <ion-input placeholder="ค่าอากรแสตมป์"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="margin-top: 10px; text-align: center;"> + </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="border-input" style="text-align: center;">
+          <ion-input placeholder="ค่าจดจำนอง"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="text-align: center;">
+          ราคาจ่ายเพิ่ม ณ ที่จ่าย
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="text-align: center;" class="border-input">
+          <ion-input placeholder=""></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
