@@ -13,6 +13,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera } from '@ionic-native/Camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { ModalPageModule } from './modal/modal.module';
+import { AgmCoreModule } from '@agm/core';
 // import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 
 @NgModule({
@@ -24,6 +25,9 @@ import { ModalPageModule } from './modal/modal.module';
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC7m7TrMDPUMmRgFIEIwoOgJZ5q_KIYeFc'
+    }),
     ModalPageModule],
   providers: [
     StatusBar,

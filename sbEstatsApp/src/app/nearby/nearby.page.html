@@ -1,9 +1,23 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
-    <ion-title>nearby</ion-title>
+    <ion-title>สถานที่รอบตัว</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-
+  <!-- <div #map id="map"></div> -->
+  <agm-map
+    [style.height]="height"
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom"
+  >
+    <agm-marker
+      *ngFor="let item of nearbyList"
+      [latitude]="item.lat"
+      [longitude]="item.lng"
+      [iconUrl]="item.icon"
+      (markerClick)="markerClick($event, item)"
+    ></agm-marker>
+  </agm-map>
 </ion-content>

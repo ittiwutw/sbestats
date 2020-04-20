@@ -8,12 +8,14 @@ import { NearbyPageRoutingModule } from './nearby-routing.module';
 
 import { NearbyPage } from './nearby.page';
 
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NearbyPageRoutingModule
+    NearbyPageRoutingModule,
+    AgmCoreModule
   ],
   declarations: [NearbyPage]
 })
