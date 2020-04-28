@@ -60,6 +60,37 @@ async function saveEstate(param) {
   return res;
 }
 
+async function updateEstate(param) {
+  sqlStr = `UPDATE estate
+    SET 
+       estateType = '${param.estateType}'
+       ,sellType = '${param.sellType}'
+       ,name = '${param.name}'
+       ,detail = '${param.detail}'
+       ,price = '${param.price}'
+       ,province = '${param.province}'
+       ,imgUrl = '${param.imgUrl}'
+       ,lat = '${param.lat}'
+       ,lng = '${param.lng}'
+       ,statusFlg = '${param.statusFlg}'
+       ,createDate = '${param.createDate}'
+       ,district = '${param.district}'
+       ,rai = '${param.rai}'
+       ,ngan = '${param.ngan}'
+       ,wa = '${param.wa}'
+       ,tel = '${param.tel}'
+       ,deedImg = '${param.deedImg}'
+       ,landImg = '${param.landImg}'
+       ,positionImg = '${param.positionImg}'
+       where id = ${param.id} `;
+
+  console.log("sqlStr : ", sqlStr);
+  let res = await _db.updatedata(sqlStr);
+  console.log("result insert data: ", res);
+
+  return res;
+}
+
 async function searchEstate(param) {
   let whereSellType = '';
   if(param.sellType){
@@ -83,11 +114,23 @@ async function searchEstate(param) {
   return res;
 }
 
+async function deleteEstate(param) {
+  sqlStr = `DELETE FROM estate where id = ${param.id} `;
+
+  console.log("sqlStr : ", sqlStr);
+  let res = await _db.deletedata(sqlStr);
+  console.log("result insert data: ", res);
+
+  return res;
+}
+
 let estateRepo = {
   getEstate: getEstate,
   getEstateImgByEstateId: getEstateImgByEstateId,
   saveEstate: saveEstate,
-  searchEstate: searchEstate
+  searchEstate: searchEstate,
+  updateEstate: updateEstate,
+  deleteEstate: deleteEstate
 };
 
 module.exports = estateRepo;

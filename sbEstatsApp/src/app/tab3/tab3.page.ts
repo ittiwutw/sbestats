@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  name:any;
+  name: any;
 
   constructor(
     private router: Router,
     private storage: Storage
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.storage.get('user').then(user => {
       if (user) {
         this.name = user.name;
@@ -36,5 +36,9 @@ export class Tab3Page {
 
   onClickEditProfile() {
     this.router.navigate(['/edit-profile']);
+  }
+
+  onClickMyEstate() {
+    this.router.navigate(['/tabs/my-estate']);
   }
 }

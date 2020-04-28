@@ -31,6 +31,18 @@ async function saveEstate(param, callback) {
   return;
 }
 
+async function updateEstate(param, callback) {
+  param.createDate = new Date().toMysqlFormat();
+  var data = await _estateRepo.updateEstate(param);
+
+  callback("", {
+    response_code: "0000",
+    response_description: "SUCCESS",
+  });
+
+  return;
+}
+
 async function searchEstate(param, callback) {
   var data = await _estateRepo.searchEstate(param);
 
@@ -50,11 +62,24 @@ async function searchEstate(param, callback) {
   return;
 }
 
+async function deleteEstate(param, callback) {
+  var data = await _estateRepo.deleteEstate(param);
+
+  callback("", {
+    response_code: "0000",
+    response_description: "SUCCESS",
+  });
+
+  return;
+}
+
 var estateService = {
   getEstate: getEstate,
   getEstateImg: getEstateImg,
   saveEstate: saveEstate,
   searchEstate: searchEstate,
+  updateEstate: updateEstate,
+  deleteEstate: deleteEstate
 };
 
 module.exports = estateService;

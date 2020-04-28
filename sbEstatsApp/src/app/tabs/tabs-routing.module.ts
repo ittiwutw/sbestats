@@ -58,6 +58,26 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'my-estate',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+            import('../my-estate/my-estate.module').then( m => m.MyEstatePageModule)
+          }
+        ]
+      },
+      {
+        path: 'edit-estate',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+            import('../edit-estate/edit-estate.module').then( m => m.EditEstatePageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

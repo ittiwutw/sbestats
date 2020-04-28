@@ -90,9 +90,12 @@ export class NearbyPage implements OnInit {
 
       const current = new google.maps.LatLng(this.lat, this.lng);
       const target = new google.maps.LatLng(element.lat, element.lng);
-      const distanceMet = google.maps.geometry.spherical.computeDistanceBetween(current, target);
 
+      // หาระยะทาง
+      const distanceMet = google.maps.geometry.spherical.computeDistanceBetween(current, target);
       console.log((distanceMet / 1000).toFixed(2));
+
+      // ระยะทางที่หาได้
       const distance = (distanceMet / 1000).toFixed(2);
       // tslint:disable-next-line:radix
       if (parseInt(distance) <= 10) {

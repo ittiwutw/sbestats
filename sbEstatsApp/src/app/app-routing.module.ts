@@ -53,6 +53,14 @@ const routes: Routes = [
   {
     path: 'nearby',
     loadChildren: () => import('./nearby/nearby.module').then( m => m.NearbyPageModule)
+  },
+  {
+    path: 'edit-estate',
+    loadChildren: () => import('./edit-estate/edit-estate.module').then( m => m.EditEstatePageModule)
+  },
+  {
+    path: 'my-estate',
+    loadChildren: () => import('./my-estate/my-estate.module').then( m => m.MyEstatePageModule)
   }
 
 ];

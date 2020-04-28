@@ -80,6 +80,40 @@ export class RestService {
 
   }
 
+  deleteEstate(param) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.post(this.apiUrl + 'deleteEstate', param, { headers: header })
+        .subscribe(res => {
+
+          // this.setUserLogin(res);
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
+  updateEstate(param) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.post(this.apiUrl + 'updateEstate', param, { headers: header })
+        .subscribe(res => {
+
+          // this.setUserLogin(res);
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
   searchEstate(param) {
     return new Promise((resolve, reject) => {
       const header = new HttpHeaders();

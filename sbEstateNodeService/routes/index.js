@@ -38,4 +38,16 @@ router.post('/searchEstate', (req, res) => {
     })
 });
 
+router.post('/updateEstate', (req, res) => {
+    estateController.updateEstate(req).then(rows => {
+        res.json(rows)
+    })
+});
+
+router.post('/deleteEstate', (req, res) => {
+    estateController.deleteEstate(req).then(rows => {
+        res.json(rows)
+    })
+});
+
 module.exports = router;

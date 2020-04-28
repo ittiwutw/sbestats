@@ -36,10 +36,36 @@ function searchEstate(req){
     });
 };
 
+function updateEstate(req){
+    return new Promise((resolve, reject) => {
+        try {
+            estateService.updateEstate(req.body, (err, rows) => {
+                resolve(rows);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
+
+function deleteEstate(req){
+    return new Promise((resolve, reject) => {
+        try {
+            estateService.deleteEstate(req.body, (err, rows) => {
+                resolve(rows);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
+
 var estateConst = {
     getEstate: getEstate,
     saveEstate: saveEstate,
-    searchEstate: searchEstate
+    searchEstate: searchEstate,
+    updateEstate: updateEstate,
+    deleteEstate: deleteEstate
 }
 
 module.exports = estateConst;

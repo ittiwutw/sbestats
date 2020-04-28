@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/my-estate"></ion-back-button>
+    </ion-buttons>
+    <ion-title><h1>แก้ไขที่ดิน</h1></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>ประเภทที่ดิน</ion-label>
+      <ion-select [(ngModel)]="estateData.estateType" placeholder="เลือก">
+        <ion-select-option value="ที่ดิน">ที่ดิน</ion-select-option>
+        <ion-select-option value="บ้าน">บ้าน</ion-select-option>
+        <ion-select-option value="คอนโด">คอนโด</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>ประเภทการลงประปาศ</ion-label>
+      <ion-select [(ngModel)]="estateData.sellType" placeholder="เลือก">
+        <ion-select-option value="เช่า">เช่า</ion-select-option>
+        <ion-select-option value="ขาย">ขาย</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        อัพโหลด รูปหลัก
+      </ion-label>
+      <ion-button (click)="pickImage('main')">เลือกรูปภาพ</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        อัพโหลดโฉนดที่ดิน
+      </ion-label>
+      <ion-button (click)="pickImage('deed')">เลือกรูปภาพ</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">
+        ตัวอย่างโฉนดที่ดินที่ต้องการ
+      </ion-label>
+      <img style="height: 200px;" src="../../assets/img/exdoc.gif" />
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        อัพโหลด รูปภาพที่ดิน
+      </ion-label>
+      <ion-button (click)="pickImage('land')">เลือกรูปภาพ</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        อัพโหลด แผนที่แสดงที่ตั้ง
+      </ion-label>
+      <ion-button (click)="pickImage('position')">เลือกรูปภาพ</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">ขนาดที่ดิน</ion-label>
+      <ion-input [(ngModel)]="estateData.rai" placeholder="ไร่"></ion-input>
+      <ion-input [(ngModel)]="estateData.ngan" placeholder="งาน"></ion-input>
+      <ion-input [(ngModel)]="estateData.wa" placeholder="ตร.ว"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">ราคาเสนอขาย</ion-label>
+      <ion-input [(ngModel)]="estateData.price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">ที่ดินที่ตั้ง</ion-label>
+      <ion-input
+        [(ngModel)]="estateData.province"
+        placeholder="จังหวัด"
+      ></ion-input>
+      <ion-input
+        [(ngModel)]="estateData.district"
+        placeholder="อำเภอ"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">ชื่อ</ion-label>
+      <ion-input [(ngModel)]="estateData.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">เบอร์โทร</ion-label>
+      <ion-input [(ngModel)]="estateData.tel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">รายละเอียดเพิ่มเติม</ion-label>
+      <ion-textarea [(ngModel)]="estateData.detail" rows="3"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <div class="ion-padding">
+    <p>เลือกที่อยู่</p>
+  </div>
+  <div #map id="map"></div>
+  <br />
+  <ion-button expand="block" (click)="onclickSave()">บันทึก</ion-button>
+</ion-content>

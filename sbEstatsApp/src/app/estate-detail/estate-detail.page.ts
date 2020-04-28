@@ -42,8 +42,8 @@ export class EstateDetailPage implements OnInit {
 
   }
 
-  async presentModal(urlImgVal1,urlImgVal2,urlImgVal3,urlImgVal4) {
-    console.log(urlImgVal1 + " " + urlImgVal2 +" "+ urlImgVal3 +" "+ urlImgVal4);
+  async presentModal(urlImgVal1, urlImgVal2, urlImgVal3, urlImgVal4) {
+    console.log(urlImgVal1 + " " + urlImgVal2 + " " + urlImgVal3 + " " + urlImgVal4);
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: {
@@ -52,7 +52,7 @@ export class EstateDetailPage implements OnInit {
         urlImg3: urlImgVal3,
         urlImg4: urlImgVal4
 
-     }
+      }
     });
     return await modal.present();
   }
@@ -142,6 +142,12 @@ export class EstateDetailPage implements OnInit {
       });
 
     });
+  }
+
+  onClickTaxCal() {
+    this.router.navigate(['/tax-calculator', {
+      price: this.estate.price
+    }]);
   }
 
 }

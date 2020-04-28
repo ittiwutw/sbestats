@@ -25,11 +25,11 @@
       </ion-row>
       <ion-row style="text-align: center;">
         <ion-col size="4" class="border-input">
-          <ion-input placeholder="ราคาอสังหา"></ion-input>
+          <ion-input placeholder="ราคาอสังหา" [(ngModel)]="price" (ionInput)="keyPrice($event)"></ion-input>
         </ion-col>
         <ion-col size="3" style="margin-top: 10px; text-align: center;">x 1% =</ion-col>
         <ion-col size="4" class="border-input">
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="" [(ngModel)]="priceFee" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -49,11 +49,11 @@
       </ion-row>
       <ion-row style="text-align: center;">
         <ion-col size="4" class="border-input">
-          <ion-input placeholder="ราคาอสังหา"></ion-input>
+          <ion-input placeholder="ราคาอสังหา" [(ngModel)]="price" (ionInput)="keyPrice($event)"></ion-input>
         </ion-col>
         <ion-col size="3" style="margin-top: 10px; text-align: center;"> x 1% = </ion-col>
         <ion-col size="4" class="border-input">
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="" [(ngModel)]="sumPrice2" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -73,11 +73,11 @@
       </ion-row>
       <ion-row style="text-align: center;">
         <ion-col size="6" class="border-input">
-          <ion-input placeholder="ค่าทำเนียมการโอน"></ion-input>
+          <ion-input placeholder="ค่าทำเนียมการโอน" [(ngModel)]="priceFee" disabled="true"></ion-input>
         </ion-col>
         <ion-col size="1" style="margin-top: 10px; text-align: center;"> + </ion-col>
         <ion-col size="4" class="border-input">
-          <ion-input placeholder="ค่าจดจำนอง"></ion-input>
+          <ion-input placeholder="ค่าจดจำนอง" [(ngModel)]="sumPrice2" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -97,7 +97,7 @@
       </ion-row>
       <ion-row>
         <ion-col size="12" style="text-align: center;" class="border-input">
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="" [value]="vatPrice" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -111,11 +111,11 @@
       </ion-row>
       <ion-row style="text-align: center;">
         <ion-col size="4" class="border-input">
-          <ion-input placeholder="ราคาอสังหา"></ion-input>
+          <ion-input placeholder="ราคาอสังหา" [(ngModel)]="price" (ionInput)="keyPrice($event)"></ion-input>
         </ion-col>
-        <ion-col size="3" style="margin-top: 10px; text-align: center;">x 0.1% =</ion-col>
+        <ion-col size="3" style="margin-top: 10px; text-align: center;">x 1% =</ion-col>
         <ion-col size="4" class="border-input">
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="" [(ngModel)]="priceFee" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -135,11 +135,11 @@
       </ion-row>
       <ion-row style="text-align: center;">
         <ion-col size="4" class="border-input">
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="" [(ngModel)]="price" (ionInput)="keyPrice($event)"></ion-input>
         </ion-col>
-        <ion-col size="3" style="margin-top: 10px; text-align: center;"> x 0.1% = </ion-col>
+        <ion-col size="3" style="margin-top: 10px; text-align: center;"> x 0.5% = </ion-col>
         <ion-col size="4" class="border-input">
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="" [(ngModel)]="stampPrice" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -164,11 +164,11 @@
       </ion-row>
       <ion-row style="text-align: center;">
         <ion-col size="4" class="border-input">
-          <ion-input placeholder="ราคาอสังหา"></ion-input>
+          <ion-input placeholder="ราคาอสังหา" [(ngModel)]="price" (ionInput)="keyPrice($event)"></ion-input>
         </ion-col>
         <ion-col size="3" style="margin-top: 10px; text-align: center;"> x 1% = </ion-col>
         <ion-col size="4" class="border-input">
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="" [(ngModel)]="sumPrice2" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -183,7 +183,7 @@
       </ion-row>
       <ion-row>
         <ion-col size="12" class="border-input" style="text-align: center;">
-          <ion-input placeholder="ค่าทำเนียมการโอน"></ion-input>
+          <ion-input placeholder="ค่าทำเนียมการโอน" [(ngModel)]="priceFee" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row style="text-align: center;">
@@ -191,7 +191,7 @@
       </ion-row>
       <ion-row>
         <ion-col size="12" class="border-input" style="text-align: center;">
-          <ion-input placeholder="ค่าอากรแสตมป์"></ion-input>
+          <ion-input placeholder="ค่าอากรแสตมป์" [(ngModel)]="stampPrice" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -199,7 +199,7 @@
       </ion-row>
       <ion-row>
         <ion-col size="12" class="border-input" style="text-align: center;">
-          <ion-input placeholder="ค่าจดจำนอง"></ion-input>
+          <ion-input placeholder="ค่าจดจำนอง" [(ngModel)]="sumPrice2" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -219,7 +219,7 @@
       </ion-row>
       <ion-row>
         <ion-col size="12" style="text-align: center;" class="border-input">
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="" [value]="vatPrice2" disabled="true"></ion-input>
         </ion-col>
       </ion-row>
     </ion-grid>

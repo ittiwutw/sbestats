@@ -2,15 +2,15 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { RestService } from '../services/rest.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 declare var google;
 
 @Component({
-  selector: 'app-add-estate',
-  templateUrl: './add-estate.page.html',
-  styleUrls: ['./add-estate.page.scss'],
+  selector: 'app-edit-estate',
+  templateUrl: './edit-estate.page.html',
+  styleUrls: ['./edit-estate.page.scss'],
 })
-export class AddEstatePage implements OnInit {
+export class EditEstatePage implements OnInit {
 
   @ViewChild('map', { static: false }) mapContainer: ElementRef;
   map: any;
@@ -41,8 +41,17 @@ export class AddEstatePage implements OnInit {
     private geolocation: Geolocation,
     private camera: Camera,
     private restApi: RestService,
+    private activatedRoute: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+
+    this.activatedRoute.params.subscribe(params => {
+      this.estateData = JSON.parse(params.estate);
+      console.log(this.estateData);
+      this.loadMap();
+
+    });
+  }
 
   ngOnInit() {
   }
@@ -58,9 +67,10 @@ export class AddEstatePage implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
 
       // set lat lng
-      const latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+      const estateLatLng = new google.maps.LatLng(this.estateData.lat, this.estateData.lng);
+      // const latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
       const mapOptions = {
-        center: latLng,
+        center: estateLatLng,
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
@@ -76,6 +86,8 @@ export class AddEstatePage implements OnInit {
         that.estateData.lng = e.latLng.lng();
         that.addMarkersToMap(e.latLng);
       });
+
+      this.addMarkersToMap(estateLatLng);
     }).catch((error) => {
       console.log('Error getting location', error);
     });
@@ -93,7 +105,7 @@ export class AddEstatePage implements OnInit {
 
   onclickSave() {
     console.log(this.estateData);
-    this.restApi.saveEstate(this.estateData).then(res => {
+    this.restApi.updateEstate(this.estateData).then(res => {
       console.log(res);
       this.router.navigate(['/my-estate']);
     });
