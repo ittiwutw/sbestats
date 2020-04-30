@@ -14,6 +14,7 @@ export class AddEstatePage implements OnInit {
 
   @ViewChild('map', { static: false }) mapContainer: ElementRef;
   map: any;
+  markers: any;
 
   estateData = {
     imgUrl: 'https://yuzudigital.com/condo1.jpeg',
@@ -74,7 +75,18 @@ export class AddEstatePage implements OnInit {
         console.log(e.latLng.lat() + ' ' + e.latLng.lng());
         that.estateData.lat = e.latLng.lat();
         that.estateData.lng = e.latLng.lng();
+        // if (this.marker && this.marker.setMap) {
+        //   this.marker.setMap(null);
+        // }
+        // this.marker = new google.maps.Marker({
+        //   position: latLng,
+        //   map: this.map
+        // });
+
+        // this.marker.setMap(this.map);
+        // this.markers.setMap(null);
         that.addMarkersToMap(e.latLng);
+        // marker
       });
     }).catch((error) => {
       console.log('Error getting location', error);
@@ -84,11 +96,16 @@ export class AddEstatePage implements OnInit {
 
   addMarkersToMap(latLng) {
     // this.removeMarker();
-    const marker = new google.maps.Marker({
+    // this.markers = [];
+
+    this.markers = new google.maps.Marker({
       position: latLng,
       map: this.map
     });
-    marker.setMap(this.map);
+    // this.markers.setMap(null);
+    // marker.setMap(this.map);
+
+    // this.markers.push(marker);
   }
 
   onclickSave() {

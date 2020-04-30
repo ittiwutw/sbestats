@@ -12,6 +12,7 @@
     [longitude]="lng"
     [zoom]="zoom"
   >
+    <agm-marker [latitude]="currentLat" [longitude]="currentLng"></agm-marker>
     <agm-marker
       *ngFor="let item of nearbyList"
       [latitude]="item.lat"

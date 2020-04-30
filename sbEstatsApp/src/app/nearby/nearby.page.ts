@@ -23,6 +23,9 @@ export class NearbyPage implements OnInit {
   lng: any;
 
   nearbyList = [];
+  
+  currentLat: any;
+  currentLng: any;
 
   constructor(
     private restApi: RestService,
@@ -77,8 +80,13 @@ export class NearbyPage implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
+      this.currentLat = resp.coords.latitude;
+      this.currentLng = resp.coords.longitude;
+      const latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
 
       this.addMarkersToMap();
+
+      // this.addMarkersCurrentToMap(latLng);
       // this.loading.dismiss();
     }).catch((error) => {
       console.log('Error getting location', error);
