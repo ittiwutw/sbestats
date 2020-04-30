@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { RestService } from '../services/rest.service';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 declare var google;
 
 @Component({
@@ -33,7 +34,8 @@ export class AddEstatePage implements OnInit {
     estateType: '',
     sellType: '',
     lat: 0,
-    lng: 0
+    lng: 0,
+    userId: 0
   };
 
   marker;
@@ -42,7 +44,8 @@ export class AddEstatePage implements OnInit {
     private geolocation: Geolocation,
     private camera: Camera,
     private restApi: RestService,
-    private router: Router
+    private router: Router,
+    private storage: Storage,
   ) { }
 
   ngOnInit() {
@@ -109,11 +112,17 @@ export class AddEstatePage implements OnInit {
   }
 
   onclickSave() {
-    console.log(this.estateData);
-    this.restApi.saveEstate(this.estateData).then(res => {
-      console.log(res);
-      this.router.navigate(['/my-estate']);
+    this.storage.get('user').then(user => {
+      if (user) {
+        this.estateData.userId = user.id;
+        console.log(this.estateData);
+        this.restApi.saveEstate(this.estateData).then(res => {
+          console.log(res);
+          this.router.navigate(['/my-estate']);
+        });
+      }
     });
+
   }
 
   pickImage(type) {
