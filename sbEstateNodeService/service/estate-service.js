@@ -27,34 +27,38 @@ async function saveEstate(param, callback) {
   }
   if (param.imgUrl.length > 0) {
     var base64Data = param.imgUrl.replace(/^data:image\/png;base64,/, "");
-    fs.writeFile("estate/" + makeid(5) + ".png", base64Data, "base64", function (
+    var name = makeid(5);
+    fs.writeFile("estate/" + name + ".png", base64Data, "base64", function (
       err
     ) {});
-    param.imgUrl = host + "estate/" + makeid(5) + ".png";
+    param.imgUrl = host + "estate/" + name + ".png";
   }
 
   if (param.deedImg.length > 0) {
     var base64Data = param.deedImg.replace(/^data:image\/png;base64,/, "");
-    fs.writeFile("estate/" + makeid(5) + ".png", base64Data, "base64", function (
+    var name = makeid(5);
+    fs.writeFile("estate/" + name + ".png", base64Data, "base64", function (
       err
     ) {});
-    param.deedImg = host + "estate/" + makeid(5) + ".png";
+    param.deedImg = host + "estate/" + name + ".png";
   }
 
   if (param.landImg.length > 0) {
     var base64Data = param.landImg.replace(/^data:image\/png;base64,/, "");
-    fs.writeFile("estate/" + makeid(5) + ".png", base64Data, "base64", function (
+    var name = makeid(5);
+    fs.writeFile("estate/" + name + ".png", base64Data, "base64", function (
       err
     ) {});
-    param.landImg = host + "estate/" + makeid(5) + ".png";
+    param.landImg = host + "estate/" + name + ".png";
   }
 
   if (param.positionImg.length > 0) {
     var base64Data = param.positionImg.replace(/^data:image\/png;base64,/, "");
-    fs.writeFile("estate/" + makeid(5) + ".png", base64Data, "base64", function (
+    var name = makeid(5);
+    fs.writeFile("estate/" + name + ".png", base64Data, "base64", function (
       err
     ) {});
-    param.positionImg = host + "estate/" + makeid(5) + ".png";
+    param.positionImg = host + "estate/" + name + ".png";
   }
 
   param.createDate = new Date().toMysqlFormat();

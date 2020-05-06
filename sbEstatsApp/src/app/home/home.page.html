@@ -19,6 +19,9 @@
         <ion-button shape="full" default-button [color]="colorBuy" (click)="selectType('ขาย')" >ซื้อ</ion-button>
       </ion-col>
       <ion-col size="12">
+        <ion-button shape="full" default-button color="tertiary" (click)="selectType('hot')" >ทำเลทอง</ion-button>
+      </ion-col>
+      <ion-col size="12">
         <ion-button shape="full" default-button [color]="colorAll" (click)="selectType('')" >แสดงทั้งหมด</ion-button>
       </ion-col>
     </ion-row>
@@ -37,4 +40,6 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <br>
+  <br>
 </ion-content>

@@ -88,7 +88,11 @@ export class HomePage implements OnInit {
   selectType(type) {
 
     this.estates = [];
-
+    let isHot = false;
+    if (type === 'hot') {
+      type = '';
+      isHot = true;
+    }
     const param = {
       name: this.currentSearch,
       sellType: type
@@ -99,7 +103,20 @@ export class HomePage implements OnInit {
       let data: any;
       data = res;
       if (data.response_code === '0000') {
-        this.estates = data.data.result;
+        const allEstate = data.data.result;
+        if (isHot) {
+          const hotEstate = [];
+          allEstate.forEach(estate => {
+            if (estate.hotFlag === 1) {
+              hotEstate.push(estate);
+            }
+          });
+
+          this.estates = hotEstate;
+        } else {
+          this.estates = data.data.result;
+        }
+
       }
       console.log(this.estates);
     });
