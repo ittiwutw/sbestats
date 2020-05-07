@@ -78,6 +78,7 @@ export class NearbyPage implements OnInit {
 
   loadMap() {
     this.geolocation.getCurrentPosition().then((resp) => {
+      console.log(resp);
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
       this.currentLat = resp.coords.latitude;

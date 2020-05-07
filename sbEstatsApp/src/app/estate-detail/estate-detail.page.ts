@@ -146,7 +146,7 @@ export class EstateDetailPage implements OnInit {
 
   onClickTaxCal() {
     this.router.navigate(['/tax-calculator', {
-      price: this.estate.price
+      price: this.estate.price.split(',').join('')
     }]);
   }
 

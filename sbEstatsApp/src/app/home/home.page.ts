@@ -106,13 +106,22 @@ export class HomePage implements OnInit {
         const allEstate = data.data.result;
         if (isHot) {
           const hotEstate = [];
-          allEstate.forEach(estate => {
-            if (estate.hotFlag === 1) {
-              hotEstate.push(estate);
+          this.estates = allEstate.filter((estate) => {
+            let estatefiltter;
+            if (estate.district) {
+              estatefiltter = estate.district.indexOf('คลองเตย') > -1 || estate.district.indexOf('วัฒนา') > -1;
             }
-          });
 
-          this.estates = hotEstate;
+            return estatefiltter;
+          });
+          // allEstate.forEach(estate => {
+
+          //   if (estate.hotFlag === 1) {
+          //     hotEstate.push(estate);
+          //   }
+          // });
+
+          // this.estates = hotEstate;
         } else {
           this.estates = data.data.result;
         }

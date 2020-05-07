@@ -135,6 +135,7 @@ export class AddEstatePage implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     };
     this.camera.getPicture(options).then((imageData) => {
+      // base64
       if (type === 'main') {
         this.estateData.imgUrl = imageData;
         console.log(this.estateData.imgUrl);
