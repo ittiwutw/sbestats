@@ -24,6 +24,15 @@
       </ion-card>
       <br />
     </ion-slide>
+    <ion-slide background-size >
+      <ion-card *ngIf="estate.landImg">
+        <img [src]="estate.landImg" />
+      </ion-card>
+      <br />
+      <ion-card *ngIf="estate.positionImg">
+        <img [src]="estate.positionImg" />
+      </ion-card>
+    </ion-slide>
   </ion-slides>
   <ion-grid>
     <ion-row>
@@ -63,6 +72,12 @@
   <ion-list lines="none">
     <ion-item>
       <ion-label position="fixed">
+        เบอร์ติดต่อ
+      </ion-label>
+      <ion-input disabled="true" [value]="estate.tel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">
         ประเภท
       </ion-label>
       <ion-input disabled="true" [value]="estate.estateType"></ion-input>
@@ -75,7 +90,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="fixed">
-        อำเภอ
+        เขต
       </ion-label>
       <ion-input disabled="true" [value]="estate.district"></ion-input>
     </ion-item>
