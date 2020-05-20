@@ -40,6 +40,9 @@ export class AddEstatePage implements OnInit {
 
   marker;
 
+  inputLat = '';
+  inputLng = '';
+
   constructor(
     private geolocation: Geolocation,
     private camera: Camera,
@@ -151,6 +154,37 @@ export class AddEstatePage implements OnInit {
       }
     }, (err) => {
       // Handle error
+    });
+  }
+
+  search() {
+    const that = this;
+    const latLng = new google.maps.LatLng(this.estateData.lat, this.estateData.lng);
+    const mapOptions = {
+      center: latLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    this.map = new google.maps.Map(this.mapContainer.nativeElement, mapOptions);
+
+    this.map.addListener('click', function (e) {
+      console.log(e);
+      console.log(e.latLng.lat() + ' ' + e.latLng.lng());
+      that.estateData.lat = e.latLng.lat();
+      that.estateData.lng = e.latLng.lng();
+      // if (this.marker && this.marker.setMap) {
+      //   this.marker.setMap(null);
+      // }
+      // this.marker = new google.maps.Marker({
+      //   position: latLng,
+      //   map: this.map
+      // });
+
+      // this.marker.setMap(this.map);
+      // this.markers.setMap(null);
+      that.addMarkersToMap(e.latLng);
+      // marker
     });
   }
 

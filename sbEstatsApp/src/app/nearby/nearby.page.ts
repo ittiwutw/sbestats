@@ -23,7 +23,7 @@ export class NearbyPage implements OnInit {
   lng: any;
 
   nearbyList = [];
-  
+
   currentLat: any;
   currentLng: any;
 

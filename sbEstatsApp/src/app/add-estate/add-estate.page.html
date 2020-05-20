@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><h1> เพิ่มที่ดิน</h1></ion-title>
+    <ion-title><h1>เพิ่มที่ดิน</h1></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -47,7 +47,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">ราคาเสนอขาย</ion-label>
-      <ion-input [(ngModel)]="estateData.price"></ion-input>
+      <ion-input [(ngModel)]="estateData.price" type="number"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">ที่ดินที่ตั้ง</ion-label>
@@ -57,7 +57,7 @@
       ></ion-input>
       <ion-input
         [(ngModel)]="estateData.district"
-        placeholder="เขค"
+        placeholder="เขต"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -76,6 +76,16 @@
   <div class="ion-padding">
     <p>เลือกที่อยู่</p>
   </div>
+  <ion-item>
+    <ion-label position="floating">ระบุ ละติจูด</ion-label>
+    <ion-input [(ngModel)]="estateData.lat"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">ระบุ ลองติจูด</ion-label>
+    <ion-input [(ngModel)]="estateData.lng"></ion-input>
+  </ion-item>
+  <ion-button (click)="search()" expand="block">ค้นหาพื้นที่</ion-button>
+  <br>
   <div #map id="map"></div>
   <br />
   <ion-button expand="block" (click)="onclickSave()">ลงขาย</ion-button>
